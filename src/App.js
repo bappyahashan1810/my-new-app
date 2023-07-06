@@ -1,23 +1,49 @@
 import logo from './logo.svg';
 import './App.css';
 
+const h3Style = {
+  backgroundColor: 'blue',
+  color: 'white',
+  padding: '5px'
+}
+
 function App() {
+  const persons = ['Bappy', 'Rebu', 'Ibrahim', 'Shifat', 'Tanvir'];
+  const job = [
+    { name: 'bappy', job: 'webDevloper' },
+    { name: 'Rebu', job: 'Cricketer' },
+    { name: 'Ibrahim', job: 'Totto' },
+    { name: 'Shifat', job: 'Ganjuti' },
+    { name: 'Tanvir', job: 'Tecacher' },
+  ];
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        persons.map(person => <li>{person}</li>)
+
+      }
+
+      {
+        job.map(person => <MyName name={person.name} job={person.job}></MyName>)
+      }
+
+    </div>
+  );
+}
+function MyName(props) {
+  return (
+    <div className='myname'>
+      <h1>{props.name}</h1>
+      <p>{props.job}</p>
+    </div>
+  );
+}
+function NewFriend(props) {
+  return (
+    <div className='friendName'>
+      <h1>{props.name}</h1>
+      <p>{props.job}</p>
     </div>
   );
 }
